@@ -1,7 +1,7 @@
 import '../styles/main.scss';
-
 const init = () => {
-  document.querySelector('#app').innerHTML = ('<h1>HELLO! You are up and running!</h1>');
+  document.querySelector('#app').innerHTML = '<h1>HELLO! You are up and running!</h1>');
+  console.log('YOU ARE UP AND RUNNING!');
 };
 
 init();
@@ -18,6 +18,7 @@ const studentsOnDom = (divId, array, house = 'Hogwarts') => {
   if (!array.length) {
     domString += `NO ${house.toUpperCase()} STUDENTS`;
   }
+
   array.forEach((student) => {
     domString += `
     <div class="card bg-dark text-white">

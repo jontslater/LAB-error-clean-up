@@ -1,10 +1,4 @@
-import '../styles/main.scss';
-
-const init = () => {
-  document.querySelector('#app').innerHTML = ('<h1>HELLO! You are up and running!</h1>');
-};
-
-init();
+// import '../styles/main.scss'; // You have to import your styles for them to work. Comment in this line
 
 const startApp = () => {
 };
@@ -18,6 +12,7 @@ const studentsOnDom = (divId, array, house = 'Hogwarts') => {
   if (!array.length) {
     domString += `NO ${house.toUpperCase()} STUDENTS`;
   }
+
   array.forEach((student) => {
     domString += `
     <div class="card bg-dark text-white">
@@ -86,36 +81,6 @@ filterBtnRow();
 
 // ********** LOGIC  ********** //
 // sorts student to a house and then place them in the students array
-const createId = (array) => {
-  if (array.length) {
-    const idArray = array.map((el) => el.id);
-    return Math.max(...idArray) + 1;
-  }
-  return 0;
-};
-
-const houses = [
-  {
-    house: 'gryffindor',
-    crest:
-      'https://static.wikia.nocookie.net/pottermore/images/1/16/Gryffindor_crest.png'
-  },
-  {
-    house: 'slytherin',
-    crest:
-      'https://static.wikia.nocookie.net/pottermore/images/4/45/Slytherin_Crest.png'
-  },
-  {
-    house: 'hufflepuff',
-    crest:
-      'https://static.wikia.nocookie.net/pottermore/images/5/5e/Hufflepuff_crest.png'
-  },
-  {
-    house: 'ravenclaw',
-    crest:
-      'https://static.wikia.nocookie.net/pottermore/images/4/4f/Ravenclaw_crest.png'
-  }
-];
 const sortStudent = (e) => {
   e.preventDefault();
   const sortingHat = houses[Math.floor(Math.random() * houses.length)];
@@ -137,6 +102,15 @@ const sortStudent = (e) => {
 };
 
 // Create a new ID for the students
+const createId = (array) => {
+  if (array.length) {
+    const idArray = array.map((el) => el.id);
+    return Math.max(...idArray) + 1;
+  }
+  return 0;
+};
+
+
 // add form to DOM on start-sorting click.
 // Add events for form after the form is on the DOM
 const form = () => {
@@ -161,3 +135,26 @@ const form = () => {
 form();
 
 startApp();
+
+const houses = [
+  {
+    house: 'gryffindor',
+    crest:
+      'https://static.wikia.nocookie.net/pottermore/images/1/16/Gryffindor_crest.png'
+  },
+  {
+    house: 'slytherin',
+    crest:
+      'https://static.wikia.nocookie.net/pottermore/images/4/45/Slytherin_Crest.png'
+  },
+  {
+    house: 'hufflepuff',
+    crest:
+      'https://static.wikia.nocookie.net/pottermore/images/5/5e/Hufflepuff_crest.png'
+  },
+  {
+    house: 'ravenclaw',
+    crest:
+      'https://static.wikia.nocookie.net/pottermore/images/4/4f/Ravenclaw_crest.png'
+  }
+];
